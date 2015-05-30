@@ -38,6 +38,7 @@ func createClient() *kemp.Client {
 		User:     globalFlags.user,
 		Password: globalFlags.password,
 		Endpoint: globalFlags.endpoint,
+		Debug:    globalFlags.debug,
 	})
 }
 
@@ -49,6 +50,11 @@ func main() {
 	KempCtlCmd.AddCommand(versionCmd)
 	KempCtlCmd.AddCommand(getCmd)
 	KempCtlCmd.AddCommand(setCmd)
+	KempCtlCmd.AddCommand(virtualCmd)
+	virtualCmd.AddCommand(virtualListCmd)
+	virtualCmd.AddCommand(virtualAddCmd)
+	virtualCmd.AddCommand(virtualDeleteCmd)
+	virtualCmd.AddCommand(virtualShowCmd)
 
 	KempCtlCmd.Execute()
 }
