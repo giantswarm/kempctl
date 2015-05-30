@@ -30,7 +30,7 @@ func init() {
 	KempCtlCmd.PersistentFlags().BoolVarP(&globalFlags.verbose, "verbose", "v", false, "Print verbose output")
 	KempCtlCmd.PersistentFlags().StringVar(&globalFlags.user, "user", "", "User name to access the loadbalancer api")
 	KempCtlCmd.PersistentFlags().StringVar(&globalFlags.password, "password", "", "Password to access the loadbalancer api")
-	KempCtlCmd.PersistentFlags().StringVar(&globalFlags.endpoint, "endpoint", "", "Endpoint of the loadbalancer api")
+	KempCtlCmd.PersistentFlags().StringVar(&globalFlags.endpoint, "endpoint", "", "Endpoint of the loadbalancer api (eg. https://1.2.3.4/access/)")
 }
 
 func createClient() *kemp.Client {
@@ -54,7 +54,10 @@ func main() {
 	virtualCmd.AddCommand(virtualListCmd)
 	virtualCmd.AddCommand(virtualAddCmd)
 	virtualCmd.AddCommand(virtualDeleteCmd)
+	virtualCmd.AddCommand(virtualUpdateCmd)
 	virtualCmd.AddCommand(virtualShowCmd)
+	KempCtlCmd.AddCommand(realCmd)
+	realCmd.AddCommand(realAddCmd)
 
 	KempCtlCmd.Execute()
 }

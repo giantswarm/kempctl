@@ -31,22 +31,27 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 	id := args[0]
 
 	client := createClient()
-	result, err := client.ShowVirtualService(id)
+	result, err := client.ShowVirtualServiceById(id)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 
+	// TODO some grouping to get a better understanding of the config
 	lines := []string{}
-	lines = append(lines, fmt.Sprintf("%s | %s", "Name:", result.NickName))
+	lines = append(lines, fmt.Sprintf("%s | %s", "ID:", result.ID))
+	lines = append(lines, fmt.Sprintf("%s | %s", "Name:", result.Name))
 	lines = append(lines, fmt.Sprintf("%s | %s", "IPAddress:", result.IPAddress))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Port:", result.Port))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Protocol:", result.Protocol))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Status:", result.Status))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Enable:", result.Enable))
-	lines = append(lines, fmt.Sprintf("%s | %s/%s", "CheckType:", result.CheckType, result.CheckPort))
+	lines = append(lines, fmt.Sprintf("%s | %s/%s:'%s'", "CheckType:", result.CheckType, result.CheckPort, result.CheckUrl))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Transparent:", result.Transparent))
+	if result.CertFile != "" {
+		lines = append(lines, fmt.Sprintf("%s | %s", "CertFile:", result.CertFile))
+	}
 
 	if globalFlags.verbose {
 		lines = append(lines, fmt.Sprintf("%s | %s", "SSLReverse:", result.SSLReverse))
@@ -73,6 +78,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 		lines = append(lines, fmt.Sprintf("%s | %s", "FollowVSID:", result.FollowVSID))
 		lines = append(lines, fmt.Sprintf("%s | %s", "Schedule:", result.Schedule))
 		lines = append(lines, fmt.Sprintf("%s | %s", "PersistTimeout:", result.PersistTimeout))
+		lines = append(lines, fmt.Sprintf("%s | %s", "SSLAcceleration:", result.SSLAcceleration))
 		lines = append(lines, fmt.Sprintf("%s | %s", "NRules:", result.NRules))
 		lines = append(lines, fmt.Sprintf("%s | %s", "NRequestRules:", result.NRequestRules))
 		lines = append(lines, fmt.Sprintf("%s | %s", "NResponseRules:", result.NResponseRules))
