@@ -33,8 +33,23 @@ func virtualListRun(cmd *cobra.Command, args []string) {
 
 	lines := []string{virtualListHeader}
 	for _, v := range result {
-		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.Transparent, v.Status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckUrl, v.CertFile))
+		status := v.Status
+
+		if v.Status == "Up" {
+			down := 0
+			for _, rs := range v.Rs {
+				if rs.Status != "Up" {
+					down++
+				}
+			}
+			if down > 0 {
+				status = fmt.Sprintf("%s (%d down)", v.Status, down)
+			}
+		}
+
+		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.Transparent, status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckUrl, v.CertFile))
 	}
 	fmt.Println(columnize.SimpleFormat(lines))
+
 	os.Exit(0)
 }
