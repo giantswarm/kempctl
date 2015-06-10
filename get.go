@@ -43,6 +43,10 @@ func getRun(cmd *cobra.Command, args []string) {
 		fmt.Fprintln(os.Stderr, "Parameter missing.")
 		os.Exit(1)
 	}
+	if len(args) > 1 {
+		fmt.Fprintln(os.Stderr, "Too many parameters.")
+		os.Exit(1)
+	}
 	parameter := args[0]
 
 	client := createClient()
