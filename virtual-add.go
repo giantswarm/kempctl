@@ -72,7 +72,7 @@ func virtualAddRun(cmd *cobra.Command, args []string) {
 		log.Fatal(err)
 	}
 
-	virtualShowRun(cmd, []string{data.ID})
+	virtualShowRun(cmd, []string{string(data.ID)})
 
 	os.Exit(0)
 }

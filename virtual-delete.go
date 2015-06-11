@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -25,10 +26,13 @@ func virtualDeleteRun(cmd *cobra.Command, args []string) {
 		fmt.Fprintln(os.Stderr, "Too many parameters.")
 		os.Exit(1)
 	}
-	id := args[0]
+	id, err := strconv.Atoi(args[0])
+	if err != nil {
+		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID should be a number '%s' (%s).", args[0], err.Error()))
+	}
 
 	client := createClient()
-	err := client.DeleteVirtualServiceByID(id)
+	err = client.DeleteVirtualServiceByID(id)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
