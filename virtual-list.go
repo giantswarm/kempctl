@@ -47,7 +47,7 @@ func virtualListRun(cmd *cobra.Command, args []string) {
 			}
 		}
 
-		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.Transparent, status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckUrl, v.CertFile))
+		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.Transparent, status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckURL, v.CertFile))
 	}
 	fmt.Println(columnize.SimpleFormat(lines))
 

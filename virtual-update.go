@@ -42,7 +42,7 @@ func virtualUpdateRun(cmd *cobra.Command, args []string) {
 		Protocol:        virtualUpdateFlags.protocol,
 		Transparent:     virtualUpdateFlags.transparent,
 		CheckType:       virtualUpdateFlags.checkType,
-		CheckUrl:        virtualUpdateFlags.checkUrl,
+		CheckURL:        virtualUpdateFlags.checkURL,
 		CheckPort:       virtualUpdateFlags.checkPort,
 		SSLAcceleration: virtualUpdateFlags.sslAcceleration,
 	})

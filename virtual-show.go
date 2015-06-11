@@ -51,7 +51,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 	lines = append(lines, fmt.Sprintf("%s | %s", "Protocol:", result.Protocol))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Status:", result.Status))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Enable:", result.Enable))
-	lines = append(lines, fmt.Sprintf("%s | %s/%s:'%s'", "CheckType:", result.CheckType, result.CheckPort, result.CheckUrl))
+	lines = append(lines, fmt.Sprintf("%s | %s/%s:'%s'", "CheckType:", result.CheckType, result.CheckPort, result.CheckURL))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Transparent:", result.Transparent))
 	if result.CertFile != "" {
 		lines = append(lines, fmt.Sprintf("%s | %s", "CertFile:", result.CertFile))
