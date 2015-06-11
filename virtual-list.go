@@ -18,7 +18,7 @@ var (
 )
 
 const (
-	virtualListHeader = "Id | Name | IPAddress | Port | Protocol | Transparent | Status | Backends | Check | Cert"
+	virtualListHeader = "ID | Name | IPAddress | Port | Protocol | Transparent | Status | Backends | Check | Cert"
 	virtualListScheme = "%s | %s | %s | %s | %s | %s | %s | %s | %s/%s:'%s' | %s"
 )
 

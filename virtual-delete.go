@@ -28,7 +28,7 @@ func virtualDeleteRun(cmd *cobra.Command, args []string) {
 	id := args[0]
 
 	client := createClient()
-	err := client.DeleteVirtualServiceById(id)
+	err := client.DeleteVirtualServiceByID(id)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)

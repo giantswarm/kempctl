@@ -52,7 +52,7 @@ func realAddRun(cmd *cobra.Command, args []string) {
 	}
 
 	client := createClient()
-	err := client.AddRealServerById(realAddFlags.virtualServiceID, kemp.RealServer{
+	err := client.AddRealServerByID(realAddFlags.virtualServiceID, kemp.RealServer{
 		IPAddress: realAddFlags.ip,
 		Port:      realAddFlags.port,
 	})

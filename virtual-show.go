@@ -19,7 +19,7 @@ var (
 )
 
 const (
-	virtualShowHeader = "Id | IPAddress | Port | Forward | Status | Weight | Enable"
+	virtualShowHeader = "ID | IPAddress | Port | Forward | Status | Weight | Enable"
 	virtualShowScheme = "%s | %s | %s | %s | %s | %s | %s"
 )
 
@@ -35,7 +35,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 	id := args[0]
 
 	client := createClient()
-	result, err := client.ShowVirtualServiceById(id)
+	result, err := client.ShowVirtualServiceByID(id)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
