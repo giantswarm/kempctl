@@ -19,7 +19,7 @@ var (
 
 const (
 	virtualListHeader = "ID | Name | IPAddress | Port | Protocol | Transparent | Status | Backends | Check | Cert"
-	virtualListScheme = "%s | %s | %s | %s | %s | %s | %s | %s | %s/%s:'%s' | %s"
+	virtualListScheme = "%d | %s | %s | %s | %s | %s | %s | %s | %s/%s:'%s' | %s"
 )
 
 func virtualListRun(cmd *cobra.Command, args []string) {

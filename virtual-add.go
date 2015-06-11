@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	kemp "github.com/giantswarm/kemp-client"
 	"github.com/spf13/cobra"
@@ -52,7 +54,8 @@ func virtualAddRun(cmd *cobra.Command, args []string) {
 		virtualAddFlags.sslAcceleration = true
 	}
 	if virtualAddFlags.ip == "" {
-		log.Fatal("IP address for the virtual service missing")
+		fmt.Fprintln(os.Stderr, "IP address (--ip) for the virtual service missing")
+		os.Exit(1)
 	}
 
 	client := createClient()
@@ -72,7 +75,7 @@ func virtualAddRun(cmd *cobra.Command, args []string) {
 		log.Fatal(err)
 	}
 
-	virtualShowRun(cmd, []string{string(data.ID)})
+	virtualShowRun(cmd, []string{strconv.Itoa(data.ID)})
 
 	os.Exit(0)
 }

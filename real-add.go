@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 
 	kemp "github.com/giantswarm/kemp-client"
 	"github.com/spf13/cobra"
@@ -30,24 +31,20 @@ func init() {
 }
 
 func realAddRun(cmd *cobra.Command, args []string) {
-	if len(args) < 1 {
-		fmt.Fprintln(os.Stderr, "Virtual service ID is missing.")
-		os.Exit(1)
-	}
-	if len(args) > 1 {
+	if len(args) > 0 {
 		fmt.Fprintln(os.Stderr, "Too many parameters.")
 		os.Exit(1)
 	}
 	if realAddFlags.virtualServiceID == 0 {
-		fmt.Fprintln(os.Stderr, "Virtual Service ID is required.")
+		fmt.Fprintln(os.Stderr, "Virtual Service ID (--virtual-service-id) is required.")
 		os.Exit(1)
 	}
 	if realAddFlags.ip == "" {
-		fmt.Fprintln(os.Stderr, "Real server IP address is required.")
+		fmt.Fprintln(os.Stderr, "Real server IP (--ip) address is required.")
 		os.Exit(1)
 	}
 	if realAddFlags.port == "" {
-		fmt.Fprintln(os.Stderr, "Real server Port is required.")
+		fmt.Fprintln(os.Stderr, "Real server Port (--port) is required.")
 		os.Exit(1)
 	}
 
@@ -62,7 +59,7 @@ func realAddRun(cmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	virtualShowRun(cmd, []string{string(realAddFlags.virtualServiceID)})
+	virtualShowRun(cmd, []string{strconv.Itoa(realAddFlags.virtualServiceID)})
 
 	os.Exit(0)
 }

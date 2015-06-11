@@ -19,7 +19,7 @@ var (
 
 func virtualDeleteRun(cmd *cobra.Command, args []string) {
 	if len(args) < 1 {
-		fmt.Fprintln(os.Stderr, "Virtual service ID is missing.")
+		fmt.Fprintln(os.Stderr, "Virtual service ID (kempctl virtual delete <id>) is missing.")
 		os.Exit(1)
 	}
 	if len(args) > 1 {
@@ -28,7 +28,8 @@ func virtualDeleteRun(cmd *cobra.Command, args []string) {
 	}
 	id, err := strconv.Atoi(args[0])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID should be a number '%s' (%s).", args[0], err.Error()))
+		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID (kempctl virtual delete <id>) should be a number '%s' (%s).", args[0], err.Error()))
+		os.Exit(1)
 	}
 
 	client := createClient()

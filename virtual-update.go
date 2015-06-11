@@ -26,7 +26,7 @@ func init() {
 
 func virtualUpdateRun(cmd *cobra.Command, args []string) {
 	if len(args) < 1 {
-		fmt.Fprintln(os.Stderr, "Virtual service ID is missing.")
+		fmt.Fprintln(os.Stderr, "Virtual service ID (kempctl virtual update <id>) is missing.")
 		os.Exit(1)
 	}
 	if len(args) > 1 {
@@ -35,7 +35,8 @@ func virtualUpdateRun(cmd *cobra.Command, args []string) {
 	}
 	id, err := strconv.Atoi(args[0])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID should be a number '%s' (%s).", args[0], err.Error()))
+		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID (kempctl virtual update <id>) should be a number '%s' (%s).", args[0], err.Error()))
+		os.Exit(1)
 	}
 
 	client := createClient()
@@ -56,7 +57,7 @@ func virtualUpdateRun(cmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	virtualShowRun(cmd, []string{string(id)})
+	virtualShowRun(cmd, []string{strconv.Itoa(id)})
 
 	os.Exit(0)
 }

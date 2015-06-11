@@ -21,12 +21,12 @@ var (
 
 const (
 	virtualShowHeader = "ID | IPAddress | Port | Forward | Status | Weight | Enable"
-	virtualShowScheme = "%s | %s | %s | %s | %s | %s | %s"
+	virtualShowScheme = "%d | %s | %s | %s | %s | %s | %s"
 )
 
 func virtualShowRun(cmd *cobra.Command, args []string) {
 	if len(args) < 1 {
-		fmt.Fprintln(os.Stderr, "Virtual service ID is missing.")
+		fmt.Fprintln(os.Stderr, "Virtual service ID (kempctl virtual show <id>) is missing.")
 		os.Exit(1)
 	}
 	if len(args) > 1 {
@@ -35,7 +35,8 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 	}
 	id, err := strconv.Atoi(args[0])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID should be a number '%s' (%s).", args[0], err.Error()))
+		fmt.Fprintln(os.Stderr, fmt.Sprintf("Virtual service ID (kempctl virtual show <id>) should be a number '%s' (%s).", args[0], err.Error()))
+		os.Exit(1)
 	}
 
 	client := createClient()
@@ -48,7 +49,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 
 	// TODO some grouping to get a better understanding of the config
 	lines := []string{}
-	lines = append(lines, fmt.Sprintf("%s | %s", "ID:", result.ID))
+	lines = append(lines, fmt.Sprintf("%s | %d", "ID:", result.ID))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Name:", result.Name))
 	lines = append(lines, fmt.Sprintf("%s | %s", "IPAddress:", result.IPAddress))
 	lines = append(lines, fmt.Sprintf("%s | %s", "Port:", result.Port))
@@ -83,7 +84,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 		lines = append(lines, fmt.Sprintf("%s | %s", "CheckUseGet:", result.CheckUseGet))
 		lines = append(lines, fmt.Sprintf("%s | %s", "SSLRewrite:", result.SSLRewrite))
 		lines = append(lines, fmt.Sprintf("%s | %s", "VStype:", result.VStype))
-		lines = append(lines, fmt.Sprintf("%s | %s", "FollowVSID:", result.FollowVSID))
+		lines = append(lines, fmt.Sprintf("%s | %d", "FollowVSID:", result.FollowVSID))
 		lines = append(lines, fmt.Sprintf("%s | %s", "Schedule:", result.Schedule))
 		lines = append(lines, fmt.Sprintf("%s | %s", "PersistTimeout:", result.PersistTimeout))
 		lines = append(lines, fmt.Sprintf("%s | %s", "SSLAcceleration:", result.SSLAcceleration))
@@ -95,7 +96,7 @@ func virtualShowRun(cmd *cobra.Command, args []string) {
 		lines = append(lines, fmt.Sprintf("%s | %s", "InputAuthMode:", result.InputAuthMode))
 		lines = append(lines, fmt.Sprintf("%s | %s", "OutputAuthMode:", result.OutputAuthMode))
 		lines = append(lines, fmt.Sprintf("%s | %s", "MasterVS:", result.MasterVS))
-		lines = append(lines, fmt.Sprintf("%s | %s", "MasterVSID:", result.MasterVSID))
+		lines = append(lines, fmt.Sprintf("%s | %d", "MasterVSID:", result.MasterVSID))
 		lines = append(lines, fmt.Sprintf("%s | %s", "AddVia:", result.AddVia))
 		lines = append(lines, fmt.Sprintf("%s | %s", "TlsType:", result.TlsType))
 		lines = append(lines, fmt.Sprintf("%s | %s", "NeedHostName:", result.NeedHostName))
