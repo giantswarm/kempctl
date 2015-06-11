@@ -35,7 +35,7 @@ func virtualUpdateRun(cmd *cobra.Command, args []string) {
 	id := args[0]
 
 	client := createClient()
-	_, err := client.UpdateVirtualService(id, kemp.VirtualService{
+	_, err := client.UpdateVirtualService(id, kemp.VirtualServiceParams{
 		Name:            virtualUpdateFlags.name,
 		IPAddress:       virtualUpdateFlags.ip,
 		Port:            virtualUpdateFlags.port,
