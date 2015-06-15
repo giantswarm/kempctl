@@ -23,7 +23,7 @@ get-deps: .gobuild
 	mkdir -p $(PROJECT_PATH)
 	cd "$(PROJECT_PATH)" && ln -s ../../../.. $(PROJECT)
 
-	@builder get dep -b ids-are-ints git@github.com:giantswarm/kemp-client.git $(PROJECT_PATH)/kemp-client
+	@builder get dep -b 0.3.0 git@github.com:giantswarm/kemp-client.git $(PROJECT_PATH)/kemp-client
 
 $(BIN): $(SOURCE) VERSION
 	GOPATH=$(GOPATH) go build -a -ldflags "-X main.projectVersion $(VERSION) -X main.projectBuild $(COMMIT)" -o $(BIN)
