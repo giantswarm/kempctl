@@ -69,6 +69,8 @@ func virtualAddRun(cmd *cobra.Command, args []string) {
 		CheckURL:        virtualAddFlags.checkURL,
 		CheckPort:       virtualAddFlags.checkPort,
 		SSLAcceleration: virtualAddFlags.sslAcceleration,
+		VStype:          kemp.VStypeHTTP,
+		AddVia:          kemp.VSAddViaXForwardedForNoVia,
 	})
 
 	if err != nil {
