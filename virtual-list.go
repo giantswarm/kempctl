@@ -18,7 +18,7 @@ var (
 )
 
 const (
-	virtualListHeader = "ID | Name | IPAddress | Port | Protocol | Transparent | Status | Backends | Check | Cert"
+	virtualListHeader = "ID | Name | IPAddress | Port | Protocol | Type | Via | Transparent | Status | Backends | Check | Cert"
 	virtualListScheme = "%d | %s | %s | %s | %s | %s | %s | %s | %s/%s:'%s' | %s"
 )
 
@@ -47,7 +47,7 @@ func virtualListRun(cmd *cobra.Command, args []string) {
 			}
 		}
 
-		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.Transparent, status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckURL, v.CertFile))
+		lines = append(lines, fmt.Sprintf(virtualListScheme, v.ID, v.Name, v.IPAddress, v.Port, v.Protocol, v.VStype, v.AddVia, v.Transparent, status, v.NumberOfRSs, v.CheckType, v.CheckPort, v.CheckURL, v.CertFile))
 	}
 	fmt.Println(columnize.SimpleFormat(lines))
 
