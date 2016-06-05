@@ -51,6 +51,7 @@ func main() {
 	KempCtlCmd.AddCommand(getCmd)
 	KempCtlCmd.AddCommand(setCmd)
 	KempCtlCmd.AddCommand(virtualCmd)
+	KempCtlCmd.AddCommand(statsCmd)
 	virtualCmd.AddCommand(virtualListCmd)
 	virtualCmd.AddCommand(virtualAddCmd)
 	virtualCmd.AddCommand(virtualDeleteCmd)
