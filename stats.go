@@ -19,11 +19,11 @@ var (
 
 	statsFlags = &StatsFlags{}
 
-	validKinds = []string{
-		"all",
-		"totals",
-		"virtual",
-		"real",
+	validKinds = map[string]struct{}{
+		"all":     struct{}{},
+		"totals":  struct{}{},
+		"virtual": struct{}{},
+		"real":    struct{}{},
 	}
 )
 
@@ -86,14 +86,7 @@ func createRealServerOutput(lines []string, result kemp.Statistics) []string {
 }
 
 func statsRun(cmd *cobra.Command, args []string) {
-	isKindValid := false
-	for _, validKind := range validKinds {
-		if statsFlags.kind == validKind {
-			isKindValid = true
-		}
-	}
-
-	if !isKindValid {
+	if _, isKindValid := validKinds[statsFlags.kind]; !isKindValid {
 		fmt.Printf("Invalid kind - must be one of: %v\n", validKinds)
 		os.Exit(1)
 	}
