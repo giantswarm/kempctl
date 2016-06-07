@@ -32,4 +32,4 @@ See [CONTRIBUTING](CONTRIBUTING.md) for details on submitting patches, the contr
 
 ## License
 
-PROJECT is under the Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
+`kempctl` is under the Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
