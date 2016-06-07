@@ -1,5 +1,8 @@
 # kempctl
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/giantswarm/kempctl)](https://goreportcard.com/report/github.com/giantswarm/kempctl) [![Godoc](https://godoc.org/github.com/giantswarm/kempctl?status.svg)](http://godoc.org/github.com/giantswarm/kempctl)
+[![IRC Channel](https://img.shields.io/badge/irc-%23giantswarm-blue.svg)](https://kiwiirc.com/client/irc.freenode.net/#giantswarm)
+
 A CLI to manage Kemp load balancers.
 
 ## Getting `kempctl`
@@ -7,6 +10,10 @@ A CLI to manage Kemp load balancers.
 Download the latest release: https://github.com/giantswarm/kempctl/releases/latest
 
 Clone the git repository: https://github.com/giantswarm/kempctl.git
+
+#### Dependencies
+
+- [github.com/giantswarm/kemp-client](https://github.com/giantswarm/kemp-client)
 
 ## Running `kempctl`
 
