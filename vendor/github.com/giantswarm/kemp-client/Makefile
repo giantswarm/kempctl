@@ -1,4 +1,4 @@
-PROJECT=kempctl
+PROJECT=kemp-client
 
 BUILD_PATH := $(shell pwd)/.gobuild
 VERSION := $(shell cat VERSION)
@@ -23,13 +23,11 @@ get-deps: .gobuild
 	mkdir -p $(PROJECT_PATH)
 	cd "$(PROJECT_PATH)" && ln -s ../../../.. $(PROJECT)
 
-	@builder get dep -b 0.9.0 git@github.com:giantswarm/kemp-client.git $(PROJECT_PATH)/kemp-client
-
 $(BIN): $(SOURCE) VERSION
-	GOPATH=$(GOPATH) go build -a -ldflags "-X main.projectVersion=$(VERSION) -X main.projectBuild=$(COMMIT)" -o $(BIN)
-
-install: $(BIN)
-	cp kempctl /usr/local/bin/
+	GOPATH=$(GOPATH) go build -a -ldflags "-X main.projectVersion $(VERSION) -X main.projectBuild $(COMMIT)" -o $(BIN)
 
 clean:
 	rm -rf $(BUILD_PATH) $(BIN)
+
+fmt:
+	gofmt -w -l .

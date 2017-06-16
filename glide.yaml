@@ -1,0 +1,22 @@
+package: github.com/giantswarm/kempctl
+import:
+- package: github.com/giantswarm/kemp-client
+  version: master
+- package: github.com/ryanuber/columnize
+  version: master
+- package: github.com/spf13/cobra
+  version: master
+- package: github.com/spf13/pflag
+  version: master
+- package: github.com/cpuguy83/go-md2man
+  version: v1.0.6
+  subpackages:
+  - md2man
+- package: gopkg.in/check.v1
+  version: master
+- package: github.com/mitchellh/go-homedir
+  version: master
+- package: github.com/spf13/viper
+  version: master
+- package: gopkg.in/yaml.v2
+  version: master

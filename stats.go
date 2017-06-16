@@ -59,7 +59,7 @@ func createTotalsOutput(lines []string, result kemp.Statistics) []string {
 
 func createVirtualServerOutput(lines []string, result kemp.Statistics) []string {
 	lines = append(lines, virtualServerHeader)
-	for _, vs := range result.VirtualServers {
+	for _, vs := range result.VirtualServices {
 		enabled := "✓"
 		if vs.Enabled == 0 {
 			enabled = "✗"

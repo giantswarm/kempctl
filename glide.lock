@@ -1,0 +1,33 @@
+hash: f53ceb5fd47a870fca5556a49a814c4997bd73a40d3eeaeef4bf47a440417df4
+updated: 2017-06-16T18:27:07.824039704+02:00
+imports:
+- name: github.com/cpuguy83/go-md2man
+  version: a65d4d2de4d5f7c74868dfa9b202a3c8be315aaa
+  subpackages:
+  - md2man
+- name: github.com/giantswarm/kemp-client
+  version: 873f1a0cbf91712e5c48840e51d9a741ef17214c
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/juju/errgo
+  version: 08cceb5d0b5331634b9826762a8fd53b29b86ad8
+- name: github.com/mitchellh/go-homedir
+  version: b8bc1bf767474819792c23f32d8286a45736f1c6
+- name: github.com/rogpeppe/go-charset
+  version: e9ff06f347d3f5d0013d59ed83754f0e88de10d4
+  subpackages:
+  - charset
+  - data
+- name: github.com/ryanuber/columnize
+  version: ddeb643de91b4ee0d9d87172c931a4ea3d81d49a
+- name: github.com/spf13/cobra
+  version: b4dbd37a01839e0653eec12aa4bbb2a2ce7b2a37
+- name: github.com/spf13/pflag
+  version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+- name: github.com/spf13/viper
+  version: a1ecfa6a20bd4ef9e9caded262ee1b1b26847675
+- name: gopkg.in/check.v1
+  version: 20d25e2804050c1cd24a7eea1e7a6447dd0e74ec
+- name: gopkg.in/yaml.v2
+  version: cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b
+testImports: []
