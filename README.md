@@ -1,7 +1,6 @@
 # kempctl
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/giantswarm/kempctl)](https://goreportcard.com/report/github.com/giantswarm/kempctl) [![Godoc](https://godoc.org/github.com/giantswarm/kempctl?status.svg)](http://godoc.org/github.com/giantswarm/kempctl)
-[![IRC Channel](https://img.shields.io/badge/irc-%23giantswarm-blue.svg)](https://kiwiirc.com/client/irc.freenode.net/#giantswarm)
 
 A CLI to manage Kemp load balancers.
 
@@ -30,7 +29,6 @@ kempctl --endpoint=https://1.2.3.4/access/ --user=foo --password=bar virtual sho
 ## Contact
 
 - Mailing list: [giantswarm](https://groups.google.com/forum/!forum/giantswarm)
-- IRC: #[giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.org
 - Bugs: [issues](https://github.com/giantswarm/kempctl/issues)
 
 ## Contributing & Reporting Bugs
